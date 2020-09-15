@@ -2,10 +2,7 @@ language: generic
 sudo: required
 services:
 	- docker
-env:
-	global:
-	- SHA=$(git rev-parse HEAD)
-	- CLOUDSDK_CORE_DISABLE_PROMPTS=1
+	
 before_install:
 	- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 	- docker build -t 1608996/react-test -f ./client/Dockerfile.dev ./client
